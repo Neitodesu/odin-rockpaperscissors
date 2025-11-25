@@ -1,8 +1,8 @@
 let cScore = 0;
 let pScore = 0;
-let choice;
 let rounds = 0;
 let hasChosen = false;
+let gameOver = false;
 
 const playButton = document.getElementById('playButton');
 const againButton = document.getElementById('againButton');
@@ -15,74 +15,70 @@ const playerChoice = document.getElementById('playerChoice');
 const resultsText = document.getElementById('resultsText');
 const playerScore = document.getElementById('playerScore');
 const computerScore = document.getElementById('computerScore');
-const roundInfo = document.getElementById('roundInfo');
+const winner = document.getElementById('winner');
 
 rockButton.addEventListener('click', () => {
-  if (rounds === 5) {
-    playerChoice.textContent = ``;
-    computerChoice.textContent = ``;
-    resultsText.textContent = `GAME OVER: Press play again!`;
-    return;
+  if (!gameOver) {
+    playerChoice.textContent = `Rock`;
+    resultsText.textContent = `You chose rock!`;
+    hasChosen = true;
   }
-  playerChoice.textContent = `Rock`;
-  resultsText.textContent = `You chose rock!`;
-  hasChosen = true;
 });
 
 paperButton.addEventListener('click', () => {
-  if (rounds === 5) {
-    playerChoice.textContent = ``;
-    computerChoice.textContent = ``;
-    resultsText.textContent = `GAME OVER: Press play again!`;
-    return;
+  if (!gameOver) {
+    playerChoice.textContent = `Paper`;
+    resultsText.textContent = `You chose paper!`;
+    hasChosen = true;
   }
-  playerChoice.textContent = `Paper`;
-  resultsText.textContent = `You chose paper!`;
-  hasChosen = true;
 });
 
 scissorsButton.addEventListener('click', () => {
-  if (rounds == 5) {
-    roundInfo.textContent = `5`;
-    playerChoice.textContent = ``;
-    computerChoice.textContent = ``;
-    resultsText.textContent = `GAME OVER: Press play again!`;
-    return;
+  if (!gameOver) {
+    playerChoice.textContent = `Scissors`;
+    resultsText.textContent = `You chose scissors!`;
+    hasChosen = true;
   }
-  playerChoice.textContent = `Scissors`;
-  resultsText.textContent = `You chose scissors!`;
-  hasChosen = true;
 });
 
 againButton.addEventListener('click', () => {
+  gameOver = false;
   rounds = 0;
   hasChosen = false;
   resultsText.textContent = `Select an option and press play round to begin`;
   computerChoice.textContent = ``;
+  winner.textContent = ``;
   playerChoice.textContent = ``;
   pScore = 0;
   cScore = 0;
   rounds = 0;
   playerScore.textContent = `${pScore}`;
   computerScore.textContent = `${cScore}`;
-  roundInfo.textContent = `${rounds}`;
 });
 
 playButton.addEventListener('click', () => {
+  if (!hasChosen && !gameOver) {
+    resultsText.textContent = `You must select an option`;
+    return;
+  } else {
+    playRound();
+  }
+});
+
+const playRound = () => {
   if (rounds == 5) {
-    resultsText.textContent = `GAME OVER: Press play again!`;
+    gameOver = true;
+    winner.textContent = `GAME OVER: Press play again!`;
     return;
   } else if (!hasChosen) {
     resultsText.textContent = `You must select option to play`;
     return;
   }
-  compChoice();
-  playRound();
-  rounds++;
-  roundInfo.textContent = `${rounds}`;
-});
 
-const playRound = () => {
+  compChoice();
+  hasChosen = false;
+  rounds++;
+
   if (computerChoice.textContent == playerChoice.textContent) {
     resultsText.textContent = `Tie!`;
   } else if (
@@ -128,11 +124,9 @@ const playRound = () => {
     cScore++;
     computerScore.textContent = `${cScore}`;
   }
-
-  hasChosen = false;
 };
 
-const compChoice = () => {
+const compChoice = (choice) => {
   choice = Math.floor(Math.random() * 3 + 1);
 
   switch (choice) {
@@ -145,8 +139,6 @@ const compChoice = () => {
     case 3:
       choice = 'Scissors';
       break;
-    default:
-      choice = 'Please Select Option';
   }
   computerChoice.textContent = `${choice}`;
   return choice;
