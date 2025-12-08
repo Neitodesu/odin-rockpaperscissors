@@ -1,11 +1,10 @@
 let cScore = 0;
 let pScore = 0;
-let rounds = 0;
 let hasChosen = false;
 let gameOver = false;
 
 const playButton = document.getElementById('playButton');
-const againButton = document.getElementById('againButton');
+const againButton = document.getElementById('reset');
 const rockButton = document.getElementById('rockButton');
 const paperButton = document.getElementById('paperButton');
 const scissorsButton = document.getElementById('scissorsButton');
@@ -43,7 +42,6 @@ scissorsButton.addEventListener('click', () => {
 
 againButton.addEventListener('click', () => {
   gameOver = false;
-  rounds = 0;
   hasChosen = false;
   resultsText.textContent = `Select an option and press play round to begin`;
   computerChoice.textContent = ``;
@@ -51,7 +49,6 @@ againButton.addEventListener('click', () => {
   playerChoice.textContent = ``;
   pScore = 0;
   cScore = 0;
-  rounds = 0;
   playerScore.textContent = `${pScore}`;
   computerScore.textContent = `${cScore}`;
 });
@@ -77,7 +74,6 @@ const playRound = () => {
 
   compChoice();
   hasChosen = false;
-  rounds++;
 
   if (computerChoice.textContent == playerChoice.textContent) {
     resultsText.textContent = `Tie!`;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>RPS</title>
     <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <main class="board">
@@ -17,11 +18,10 @@
         </p>
       </div>
       <div class="buttons">
-        <button id="rockButton">Rock</button>
-        <button id="paperButton">Paper</button>
-        <button id="scissorsButton">Scissors</button>
-        <button id="playButton">Play Round</button>
-        <button id="againButton">Play Again</button>
+        <button id="rockButton">🪨</button>
+        <button id="paperButton">📃</button>
+        <button id="scissorsButton">✂️</button>
+        <button id="reset">Play Again</button>
       </div>
       <div>
         <p id="resultsText">Select option and press play round to begin</p>
@@ -32,7 +32,7 @@
         <p>Computer Score: <span id="computerScore">0</span></p>
       </div>
       <div>
-        <p>Best score out of 5 rounds wins!</p>
+        <p>First to 5 points wins!</p>
       </div>
     </main>
     <script src="./js/index.js"></script>
