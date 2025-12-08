@@ -3,38 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RPS</title>
+    <title>Odin RPS</title>
     <link rel="shortcut icon" href="#" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <h1>ODIN RPS</h1>
     <main class="board">
-      <div class="choices">
-        <p class="computerChoice">
-          Computer Choice: <span id="computerChoice"></span>
-        </p>
-        <p class="playerChoice">
-          Player Choice: <span id="playerChoice"></span>
-        </p>
-      </div>
       <div class="buttons">
-        <div class="options">
-          <button id="rockButton">🪨</button>
-          <button id="paperButton">📃</button>
-          <button id="scissorsButton">✂️</button>
-        </div>
-        <button id="reset">Play Again</button>
+        <button id="rockButton">🪨</button>
+        <button id="paperButton">📃</button>
+        <button id="scissorsButton">✂️</button>
       </div>
-      <div>
+
+      <div class="results">
+        <p>Player: <span id="playerScore">0</span></p>
+        <p>Computer: <span id="computerScore">0</span></p>
         <p id="resultsText">Select option and press play round to begin</p>
         <p id="winner"></p>
-      </div>
-      <div>
-        <p>Player Score: <span id="playerScore">0</span></p>
-        <p>Computer Score: <span id="computerScore">0</span></p>
-      </div>
-      <div>
         <p>First to 5 points wins!</p>
+        <button class="hide" id="reset">Play Again</button>
       </div>
     </main>
     <script src="./js/index.js"></script>
