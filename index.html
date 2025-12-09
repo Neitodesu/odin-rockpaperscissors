@@ -10,6 +10,10 @@
   <body>
     <h1>ODIN RPS</h1>
     <main class="board">
+      <div class="choices">
+        <p>Player: <span class="playerChoice"></span></p>
+        <p>Computer: <span class="computerChoice"></span></p>
+      </div>
       <div class="buttons">
         <button id="rockButton">🪨</button>
         <button id="paperButton">📃</button>
@@ -19,9 +23,9 @@
       <div class="results">
         <p>Player: <span id="playerScore">0</span></p>
         <p>Computer: <span id="computerScore">0</span></p>
-        <p id="resultsText">Select option and press play round to begin</p>
+        <p id="resultsText">Select an option to begin</p>
         <p id="winner"></p>
-        <p>First to 5 points wins!</p>
+        <p id="rules">First to 5 points wins!</p>
         <button class="hide" id="reset">Play Again</button>
       </div>
     </main>

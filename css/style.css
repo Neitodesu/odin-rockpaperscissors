@@ -20,6 +20,7 @@ body {
 h1 {
   font-size: 8em;
   text-align: center;
+  margin-top: 4rem;
 }
 
 main {
@@ -32,11 +33,17 @@ main {
   padding: 2rem;
 }
 
+.choices {
+  font-size: 2rem;
+  text-align: center;
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-top: 4rem;
   margin-bottom: 5em;
 }
 
@@ -68,6 +75,17 @@ button:hover {
   transform: scale(0.95);
 }
 
+#reset {
+  height: 4rem;
+  color: #fff6ca;
+  width: 15rem;
+  font-size: 2rem;
+}
+
 .hide {
   display: none;
+}
+
+.hidden {
+  opacity: 0;
 }
